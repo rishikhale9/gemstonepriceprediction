@@ -1,24 +1,57 @@
-Gemstone Price Prediction - Rishi Khale
-Introduction About the Data :
-Please this project is of a student. Just wanted to appreciate for knowledge sharing
+💎 Gemstone Price Prediction
+A machine learning project to predict the price of diamonds using regression techniques.
 
-The dataset The goal is to predict price of given diamond (Regression Analysis).
+📌 Project Highlights:
 
-There are 10 independent variables (including id):
+🔍 Predicts diamond prices based on features like carat, cut, color, clarity, dimensions, etc.
 
-id : unique identifier of each diamond
-carat : Carat (ct.) refers to the unique unit of weight measurement used exclusively to weigh gemstones and diamonds.
-cut : Quality of Diamond Cut
-color : Color of Diamond
-clarity : Diamond clarity is a measure of the purity and rarity of the stone, graded by the visibility of these characteristics under 10-power magnification.
-depth : The depth of diamond is its height (in millimeters) measured from the culet (bottom tip) to the table (flat, top surface)
-table : A diamond's table is the facet which can be seen when the stone is viewed face up.
-x : Diamond X dimension
-y : Diamond Y dimension
-x : Diamond Z dimension
-Target variable:
+📂 Dataset sourced from Kaggle: Playground Series S3E8
 
-price: Price of the given Diamond.
-Dataset Source Link : https://www.kaggle.com/competitions/playground-series-s3e8/data?select=train.csv
+⚙️ End-to-end ML pipeline: data preprocessing, model training, prediction, and deployment.
 
-It is observed that the categorical variables 'cut', 'color' and 'clarity' are ordinal in nature
+🌐 Flask web app for real-time predictions via a user-friendly UI.
+
+📊 Dataset Details
+Input Features:
+id: Unique ID
+carat: Weight of the diamond
+cut: Quality of the diamond cut
+color: Diamond color grade
+clarity: Diamond clarity grade
+depth: Height of the diamond (mm)
+table: Width of the top facet (mm)
+x, y, z: Dimensions of the diamond (mm)
+
+Target Variable:
+price: Diamond price (in USD)
+
+🛠️ Approach
+1. Data Ingestion
+Read raw data from CSV
+Split into training and test sets
+Save processed data locally
+
+2. Data Transformation
+Create a preprocessing pipeline:
+Numerical columns: SimpleImputer (median) + StandardScaler
+Categorical columns: SimpleImputer (most frequent) + OrdinalEncoder + StandardScaler
+Save pipeline as preprocessor.pkl
+
+3. Model Training
+Test baseline models
+Train using CatBoostRegressor
+Tune CatBoost and KNN
+Build final VotingRegressor using:
+CatBoost
+XGBoost
+KNN
+Save model as model.pkl
+
+4. Prediction Pipeline
+Load preprocessor and model files
+Convert user input to DataFrame
+Make predictions on new data
+
+5. Flask Web App
+Create a web interface for input and prediction
+Deployable locally or on cloud platforms
