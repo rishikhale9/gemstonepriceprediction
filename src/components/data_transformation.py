@@ -1,3 +1,4 @@
+
 import sys
 from dataclasses import dataclass
 
@@ -14,7 +15,6 @@ import os
 
 from src.utils import save_object
 
-
 @dataclass
 class DataTransformationConfig:
     preprocessor_obj_file_path = os.path.join('artifacts','preprocessor.pkl')
@@ -22,7 +22,7 @@ class DataTransformationConfig:
 class DataTransformation:
     def __init__(self):
         self.data_transformation_config = DataTransformationConfig()
-    
+
     def get_data_transformation_object(self):
         '''
         This function is responsible for data transformation
@@ -71,7 +71,6 @@ class DataTransformation:
             logging.info('Exception occured in Data Transformation Phase')
             raise CustomException(e,sys)
         
-       
     def initate_data_transformation(self,train_path,test_path):
 
         try:

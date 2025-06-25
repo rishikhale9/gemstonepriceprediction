@@ -7,4 +7,8 @@ scikit-learn
 ipykernel
 matplotlib
 dill
+flask
+flask_cors
+lime
+pickle
 -e .
